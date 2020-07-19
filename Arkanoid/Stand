@@ -1,26 +1,30 @@
 
 public class Stand extends BaseObject {
     
-    
     private double speed = 1;
-    private double direction= 0;
-    
+   
+    private double direction = 0;
+
     public Stand(double x, double y) {
-    super(x, y, 3);
-
-    }
-      @Override
-    public void draw(Canvas canvas) {
-
+        super(x, y, 3);
     }
 
-    @Override
+    
+   @Override
     public void move() {
+        x += direction * speed;
+    }
 
+    
+    void moveLeft() {
+        direction = -1;
     }
-    public Stand(double x, double y, double radius){
-        super(x, y, radius);
+
+    
+    void moveRight() {
+        direction = 1;
     }
+
     public double getSpeed() {
         return speed;
     }
@@ -29,4 +33,9 @@ public class Stand extends BaseObject {
         return direction;
     }
 
+    
+    @Override
+    void draw(Canvas canvas) {
+        canvas.drawMatrix(x - radius + 1, y, matrix, 'M');
+    }
 }
