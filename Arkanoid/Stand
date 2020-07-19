@@ -1,5 +1,14 @@
+
 public class Stand extends BaseObject {
     
+    
+    private double speed = 1;
+    private double direction= 0;
+    
+    public Stand(double x, double y) {
+    super(x, y, 3);
+
+    }
       @Override
     public void draw(Canvas canvas) {
 
@@ -12,4 +21,12 @@ public class Stand extends BaseObject {
     public Stand(double x, double y, double radius){
         super(x, y, radius);
     }
+    public double getSpeed() {
+        return speed;
+    }
+
+    public double getDirection() {
+        return direction;
+    }
+
 }
