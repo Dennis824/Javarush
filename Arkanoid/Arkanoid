@@ -9,9 +9,47 @@ public class Arkanoid {
     private Stand stand;
     private List<Brick> bricks;
     
+    void setPoint(double x, double y, char c){
+        int x1 = (int) x;
+        int y1 = (int) y;
+    }
+    
     public void run(){}
     
-    public void move(){}
+    public void move() {
+        ball.move();
+        stand.move();
+    }
+    void draw(Canvas canvas) {
+        drawBorders(canvas);
+
+        for (Brick brick : bricks) {
+            brick.draw(canvas);
+        }
+
+        ball.draw(canvas);
+
+        stand.draw(canvas);
+
+    }
+     private void drawBorders(Canvas canvas) {
+        
+        for (int i = 0; i < width + 2; i++) {
+            for (int j = 0; j < height + 2; j++) {
+                canvas.setPoint(i, j, '.');
+            }
+        }
+
+        for (int i = 0; i < width + 2; i++) {
+            canvas.setPoint(i, 0, '-');
+            canvas.setPoint(i, height + 1, '-');
+        }
+
+        for (int i = 0; i < height + 2; i++) {
+            canvas.setPoint(0, i, '|');
+            canvas.setPoint(width + 1, i, '|');
+        }
+    }
     
     public static Arkanoid game;
     
