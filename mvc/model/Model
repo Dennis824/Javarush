@@ -1,0 +1,10 @@
+package Javarush.mvc.model;
+
+
+public interface Model {
+    
+   public ModelData getModelData();
+    
+    void loadUsers();
+    
+}
