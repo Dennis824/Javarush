@@ -1,0 +1,22 @@
+package Javarush.mvc.model;
+import Javarush.mvc.bean.User;
+
+import java.util.List;
+import java.util.ArrayList;
+
+public class FakeModel implements Model{
+    
+    private ModelData modelData = new ModelData();
+    
+     List users = new ArrayList();
+    public ModelData getModelData(){
+        return modelData;
+    };
+    
+    public void loadUsers(){
+        users.add(new User("A", 1, 1));
+        users.add(new User("B", 2, 1));
+        modelData.setUsers(users);
+        
+    };
+}
